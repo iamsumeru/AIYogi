@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IronMan Control</title>
+    <link href="css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/third_party/mui.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <style type="">
+        /**
+ * Body CSS
+ */
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        html,
+        body,
+        input,
+        textarea,
+        button {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+        }
+
+
+        /**
+ * Header CSS
+ */
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        header ul.mui-list--inline {
+            margin-bottom: 0;
+        }
+
+        header a {
+            color: white;
+        }
+
+        header table {
+            width: 100%;
+        }
+
+        /**
+ * Content CSS
+ */
+
+        #content-wrapper {
+            min-height: 100%;
+
+            /* sticky footer */
+            box-sizing: border-box;
+            margin-bottom: -100px;
+            padding-bottom: 100px;
+        }
+
+
+        /**
+ * Footer CSS
+ */
+
+        footer {
+            box-sizing: border-box;
+            height: 100px;
+            background-color: #eee;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-appbar mui--z1">
+        <div class="mui-container">
+            <table>
+                <tr class="mui--appbar-height">
+                    <td class="mui--text-title mui--text-center">IronMan</td>
+                </tr>
+            </table>
+        </div>
+    </header>
+    <div id="content-wrapper" class="mui--text-center" >
+        <div class="mui--appbar-height"></div>
+        <br>
+        <br>
+        <div class="mui--text-display3">Web</div>
+        <a class="mui-btn mui-btn--raised" href="/web/?mqttServer=wss%3A%2F%2Fhostname%2Fmqtt%2Fws">Basic <i class="fa fa-hand-o-up"></i></a>
+        <a class="mui-btn mui-btn--raised" href="/web/next?mqttServer=wss%3A%2F%2Fhostname%2Fmqtt%2Fws" >Basic&Color <i class="fa fa-hand-o-up"></i><i class="fa fa-paint-brush"></i></a>
+        <a class="mui-btn mui-btn--raised" href="/web/move?mqttServer=wss%3A%2F%2Fhostname%2Fmqtt%2Fws">Move <i class="fa fa-arrows-alt"></i></a>
+        <a class="mui-btn mui-btn--raised" href="/web/color?mqttServer=wss%3A%2F%2Fhostname%2Fmqtt%2Fws">Color <i class="fa fa-paint-brush"></i></a>
+        <a class="mui-btn mui-btn--raised" href="/web/pattern?mqttServer=wss%3A%2F%2Fhostname%2Fmqtt%2Fws">Pattern <i class="fa fa-globe"></i></a>
+        <br>
+        <br>
+        <div class="mui--text-display3">Admin</div>
+        <a class="mui-btn mui-btn--raised" href="/admin/">IHM <i class="fa fa-cogs"></i></a> 
+        <a class="mui-btn mui-btn--raised" href="/admin/simulator?mqttServer=wss%3A%2F%2Fhostname%2Fmqtt%2Fws">Simulation</a>
+        <a class="mui-btn mui-btn--raised" href="/admin/pull" target="_blank">Git Pull</a>
+        <a class="mui-btn mui-btn--raised" href="/admin/restart" target="_blank">Restart</a>
+        <a class="mui-btn mui-btn--raised" href="/admin/halt" target="_blank">Halt</a>
+        <br>
+        <br>
+        <div class="mui--text-display3">Webrtc</div>
+        <a class="mui-btn mui-btn--raised" href="/posenet.html">Posenet <i class="fa fa-child"></i></a> 
+        <a class="mui-btn mui-btn--raised" href="/rws.html">Rpi Webrtc Streamer <i class="fa fa-play-circle"></i></a> 
+        <br>
+    </div>
+    <footer>
+        <div class="mui-container mui--text-center">
+            Made with ♥ by <a href="https://naoned-makers.github.io/">Naoned-Makers</a>
+        </div>
+    </footer>
+    <script>
+        Array.from(document.getElementsByTagName("A")).forEach(node=>{
+            node.href = node.href.replace("hostname",window.location.hostname);
+        })
+    </script>
+</body>
+</html>
